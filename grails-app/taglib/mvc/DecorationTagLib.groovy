@@ -14,7 +14,7 @@ class DecorationTagLib {
             case ["4", "5", "6"]: decor += "-qODY1kxipZ0/Tv5dwDFFntI/AAAAAAAAAjM/cLXT6KEp-bE/s400/sunglasses%2Bemoticon.png'>"; break
             default: decor = ""
         }
-        out << deco
+        out << decor
         out << body()
         out << decor
     }

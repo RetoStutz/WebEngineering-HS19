@@ -8,7 +8,13 @@ class InPlaceCalculatorController {
         calcModel.en = Math.round(calcModel.en * 10) / 10
         calcModel.exam = Math.round(calcModel.exam * 10) / 10
         calcModel.result = Math.round((calcModel.en + calcModel.exam) / 2)
-        if (calcModel.errors.fieldErrors.any { it.field == "en" }) {
+        if (calcModel.errors.fieldErrors.any {it.field == "en"}){
+            calcModel.result = "Cannnot calculate. En Value iwas invalide."
+        }
+        if (calcModel.errors.fieldErrors.any {it.field == "exame"}){
+            calcModel.result = "Cannnot calculate. Exame Value iwas invalide."
+        }
+/*        if (calcModel.errors.fieldErrors.any { it.field == "en" }) {
             calcModel.en_error = "error"
             calcModel.en_error_message = "value '$calcModel.en' is not valid, must be between 1.0 and 6.0."
         }
@@ -18,7 +24,7 @@ class InPlaceCalculatorController {
         }
         if (calcModel.hasErrors()) {
             calcModel.result = "Cannot calculate. Input data was invalid."
-        }
+        }*/
         render view: 'calc', model: [calculatorInstance: calcModel]
     }
 
